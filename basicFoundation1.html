@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Function 1</title>
+</head>
+
+<body>
+    <script>
+
+        /*function to print in the html page the results of the 
+          calculations.
+          funtion 'fun' HAS to return an array and accepts no arguments
+          message
+          */
+        function printToPage(message, fun, arg1, arg2) {
+            const div = document.createElement("div")
+            div.innerHTML = `<h3>${message}:</h3><p>${fun(arg1, arg2).join(", ")}</p>`;
+            document.body.appendChild(div);
+        }
+
+        function oneTo255() {
+            let arr = [];
+            for (let i = 0; i < 255; i++) {
+                arr[i] = i + 1;
+            }
+            return arr;
+        }
+        printToPage("1. Numbers from 1 to 255", oneTo255);
+
+        function sumOfEvenNumbersUpTo1000() {
+            let sum = 0;
+            for (let i = 2; i <= 1000; i++) {
+                if (i % 2 === 0) {
+                    sum += i;
+                }
+            }
+            return [sum];
+        }
+        printToPage("2. Sum of all the even numbers from 1 to 1000",
+            sumOfEvenNumbersUpTo1000);
+
+        function sumOfOddNumbersUpTo5000() {
+            let sum = 0;
+            for (let i = 1; i <= 5000; i++) {
+                if (i % 2 === 1) {
+                    sum += i;
+                }
+            }
+            return [sum];
+        }
+        printToPage("3. Sum of all odd numbers from 1 to 5000",
+            sumOfOddNumbersUpTo5000);
+
+        function sumOfValues(array) {
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return [sum];
+        }
+        printToPage("4. Sum of values within an array",
+            sumOfValues, [1, 2, 5]);
+        printToPage("4. Sum of values within an array",
+            sumOfValues, [-5, 2, 5, 12]);
+
+        function findMax(array) {
+            let max = array[0];
+            array.forEach(element => {
+                if (element > max) {
+                    max = element;
+                }
+            });
+            return [max];
+        }
+        printToPage("5. Find max value in an array",
+            findMax, [-3, 3, 5, 7]);
+
+        function finAverage(array) {
+            let sum = 0;
+            array.forEach(element => {
+                sum += element;
+            });
+            return [sum / array.length];
+        }
+        printToPage("6. Find average of the values in an array",
+            finAverage, [1, 3, 5, 7, 20]);
+
+        function oddsUpTo50() {
+            let array = [];
+            for (let i = 0; i < 50; i++) {
+                if (i % 2 === 1) {
+                    array.push(i);
+                }
+            }
+            return array;
+        }
+        printToPage("7. Odd values from 1 to 50",
+            oddsUpTo50);
+
+        function howManyGreaterThan(y, array) {
+            let howMany = 0;
+            array.forEach(element => {
+                if (element > y) {
+                    howMany++;
+                }
+            });
+            return [howMany];
+        }
+        printToPage("8. Number of values greater than 'Y'",
+            howManyGreaterThan, 3, [1, 3, 5, 7]);
+
+        function squareArray(array) {
+            for (let i = 0; i < array.length; i++) {
+                array[i] *= array[i];
+            }
+            return array;
+        }
+        printToPage("9. Squares", squareArray, [1, 5, 10, -2]);
+
+        function nonNegatives(array) {
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (element < 0) {
+                    array[i] = 0;
+                }
+            }
+            return array;
+        }
+        printToPage("10. Non negatives of array",
+            nonNegatives, [1, 5, 10, -2]);
+
+        function maxMinAvg(array) {
+            let min = Number.MAX_SAFE_INTEGER;
+            let max = Number.MIN_SAFE_INTEGER;
+            let sum = 0;
+            array.forEach(element => {
+                sum += element;
+                if (element < min) {
+                    min = element;
+                }
+                if (element > max) {
+                    max = element;
+                }
+            });
+            return [max, min, sum / array.length];
+        }
+        printToPage("11. Max/Min/Avg values of the array",
+            maxMinAvg, [1, 5, 10, -2]);
+
+        function swapValues(array) {
+            let temp = array[0];
+            array[0] = array[array.length - 1];
+            array[array.length - 1] = temp;
+            return array;
+        }
+        printToPage("12. Swap first and last values in an array",
+            swapValues, [1, 5, 10, -2]);
+
+        function replaceNegatives(array) {
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (element < 0) {
+                    array[i] = 'Dojo';
+                }
+            }
+            return array;
+        }
+        printToPage("13. Replace negatives with 'Dojo'",
+        replaceNegatives, [-1,-3,2]);
+    </script>
+    <style>
+        body {
+            width: 60%;
+            margin-left: 10%;
+        }
+
+        div {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(23, 62, 189);
+            /* word-wrap: break-word; */
+            overflow-wrap: break-word;
+            text-align: justify;
+        }
+    </style>
+
+</body>
+
+</html>
